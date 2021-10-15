@@ -1,0 +1,4 @@
+node_modules/
+.hbuilderx
+unpackage/
+.DS_Store
