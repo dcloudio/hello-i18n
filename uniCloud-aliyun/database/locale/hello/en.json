@@ -1,0 +1,6 @@
+{
+  "name": "Name",
+  "name.format": " invalid format",
+  "name.minLength": "{label} length cannot be less than {{minLength}}",
+  "name.maxLength": "{label} length cannot exceed {{maxLength}}"
+}

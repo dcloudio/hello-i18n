@@ -4,7 +4,7 @@
     <view class="description">{{$t('index.demo-description')}}</view>
     <view class="detail-link">{{$t('index.detail')}}: <text
         class="link">https://uniapp.dcloud.net.cn/collocation/i18n</text></view>
-    <!-- <view class="locale-setting">{{$t('index.language-info')}}</view>
+    <view class="locale-setting">{{$t('index.language-info')}}</view>
     <view class="list-item">
       <text class="k">{{$t('index.system-language')}}:</text>
       <text class="v">{{systemLocale}}</text>
@@ -12,7 +12,7 @@
     <view class="list-item">
       <text class="k">{{$t('index.application-language')}}:</text>
       <text class="v">{{applicationLocale}}</text>
-    </view> -->
+    </view>
     <view class="locale-setting">{{$t('index.language')}}</view>
     <view class="locale-list">
       <view class="locale-item" v-for="(item, index) in locales" :key="index" @click="onLocaleChange(item)">
@@ -28,8 +28,12 @@
     data() {
       return {
         systemLocale: '',
-        applicationLocale: '',
-        locales: [{
+        applicationLocale: ''
+      }
+    },
+    computed:{
+      locales() {
+        return [{
             text: this.$t('locale.auto'),
             code: 'auto'
           }, {
@@ -44,10 +48,10 @@
             text: this.$t('locale.zh-hant'),
             code: 'zh-Hant'
           },
-          // {
-          //   text: this.$t('locale.ja'),
-          //   code: 'ja'
-          // }
+          {
+            text: this.$t('locale.ja'),
+            code: 'ja'
+          }
         ]
       }
     },
@@ -73,6 +77,7 @@
           })
         } else {
           uni.setLocale(e.code);
+          this.$i18n.locale = e.code;
         }
       }
     }
@@ -94,6 +99,7 @@
 
   .detail-link {
     font-size: 14px;
+    word-break: break-all;
   }
 
   .link {
@@ -130,16 +136,16 @@
   }
 
   .icon-check {
-  	margin-right: 5px;
-  	border: 2px solid #007aff;
-  	border-left: 0;
-  	border-top: 0;
-  	height: 12px;
-  	width: 6px;
-  	transform-origin: center;
-  	/* #ifndef APP-NVUE */
-  	transition: all 0.3s;
-  	/* #endif */
-  	transform: rotate(45deg);
+    margin-right: 5px;
+    border: 2px solid #007aff;
+    border-left: 0;
+    border-top: 0;
+    height: 12px;
+    width: 6px;
+    transform-origin: center;
+    /* #ifndef APP-NVUE */
+    transition: all 0.3s;
+    /* #endif */
+    transform: rotate(45deg);
   }
 </style>
